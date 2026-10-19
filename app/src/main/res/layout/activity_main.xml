@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F5F7FA">
+    android:background="#EEF2FF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,14 +13,51 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Header & Skor Card -->
+        <!-- Header Card (Indigo & Yellow) -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#6366F1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GAME TEBAK ANGKA"
+                    android:textColor="#E0E7FF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
+                <TextView
+                    android:id="@+id/tvScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Skor: 100"
+                    android:textColor="#FDE047"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Rentang Angka Card (Electric Cyan) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="18dp"
             app:cardElevation="4dp"
-            app:cardBackgroundColor="#6200EE">
+            app:cardBackgroundColor="#06B6D4">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,45 +69,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🎯 Game Tebak Angka"
-                    android:textColor="#FFFFFF"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvScore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Skor: 100"
-                    android:textColor="#FFD700"
-                    android:textSize="32sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Rentang Angka Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="#FFFFFF">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rentang Angka Simpanan Saat Ini"
-                    android:textColor="#757575"
-                    android:textSize="14sp" />
+                    android:text="RENTANG ANGKA SAAT INI"
+                    android:textColor="#CFFAFE"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
 
                 <TextView
                     android:id="@+id/tvRange"
@@ -78,104 +81,111 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="0  —  100"
-                    android:textColor="#212121"
-                    android:textSize="26sp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Input & Form Tebakan Card -->
+        <!-- Form Input Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
             app:cardBackgroundColor="#FFFFFF">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <EditText
                     android:id="@+id/etGuess"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="52dp"
                     android:background="@android:drawable/editbox_background"
                     android:hint="Masukkan tebakan angka..."
                     android:inputType="number"
-                    android:paddingHorizontal="12dp"
+                    android:paddingHorizontal="16dp"
                     android:gravity="center"
                     android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btnGuess"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Kirim Tebakan"
-                    android:textSize="16sp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="14dp"
+                    android:text="KIRIM TEBAKAN"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#8B5CF6"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvFeedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:gravity="center"
-                    android:text="Mulai tebak angka antara 0 - 100!"
-                    android:textColor="#1976D2"
+                    android:text="Masukkan angka dari 0 sampai 100"
+                    android:textColor="#6366F1"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnReset"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="52dp"
                     android:layout_marginTop="12dp"
-                    android:text="🔄 Main Lagi"
-                    android:visibility="gone" />
+                    android:text="MAIN LAGI"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#EC4899"
+                    android:visibility="gone"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Riwayat Tebakan Card -->
+        <!-- Riwayat Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
             app:cardBackgroundColor="#FFFFFF">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📜 Riwayat Tebakan"
-                    android:textColor="#212121"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:text="RIWAYAT TEBAKAN"
+                    android:textColor="#4338CA"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="8dp"
-                    android:background="#E0E0E0" />
+                    android:layout_height="2dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="#C7D2FE" />
 
                 <TextView
                     android:id="@+id/tvHistory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Belum ada tebakan."
-                    android:textColor="#616161"
+                    android:textColor="#4B5563"
                     android:textSize="14sp"
-                    android:lineSpacingExtra="4dp" />
+                    android:lineSpacingExtra="6dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

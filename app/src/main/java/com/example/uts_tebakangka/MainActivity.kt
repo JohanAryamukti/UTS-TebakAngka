@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
 
             tvScore.text = "Skor: $score"
             tvRange.text = "$minRange  —  $maxRange"
-            tvFeedback.text = "Mulai tebak angka antara 0 - 100!"
-            tvFeedback.setTextColor(Color.parseColor("#1976D2"))
+            tvFeedback.text = "Masukkan angka dari 0 sampai 100"
+            tvFeedback.setTextColor(Color.parseColor("#6366F1")) // Indigo
             tvHistory.text = "Belum ada tebakan."
             etGuess.text.clear()
             etGuess.isEnabled = true
@@ -54,21 +54,21 @@ class MainActivity : AppCompatActivity() {
             val userGuess = input.toIntOrNull()
 
             if (userGuess == null) {
-                tvFeedback.text = "⚠️ Masukkan angka yang valid!"
-                tvFeedback.setTextColor(Color.RED)
+                tvFeedback.text = "Masukkan angka yang valid!"
+                tvFeedback.setTextColor(Color.parseColor("#EF4444")) // Red Crimson
                 return@setOnClickListener
             }
 
             if (userGuess !in minRange..maxRange) {
-                tvFeedback.text = "⚠️ Angka harus di dalam rentang $minRange - $maxRange!"
-                tvFeedback.setTextColor(Color.RED)
+                tvFeedback.text = "Angka harus di dalam rentang $minRange - $maxRange!"
+                tvFeedback.setTextColor(Color.parseColor("#EF4444")) // Red Crimson
                 return@setOnClickListener
             }
 
             if (userGuess == targetNumber) {
-                tvFeedback.text = "🎉 SELAMAT! Angka simpanan adalah $targetNumber!"
-                tvFeedback.setTextColor(Color.parseColor("#388E3C"))
-                historyList.add(0, "• Tebakan $userGuess ➡️ BENAR! (Skor Akhir: $score)")
+                tvFeedback.text = "Selamat! Angka simpanan adalah $targetNumber!"
+                tvFeedback.setTextColor(Color.parseColor("#10B981")) // Emerald Green
+                historyList.add(0, "Tebakan $userGuess: BENAR (Skor: $score)")
                 btnGuess.isEnabled = false
                 etGuess.isEnabled = false
                 btnReset.visibility = View.VISIBLE
@@ -76,22 +76,22 @@ class MainActivity : AppCompatActivity() {
                 score -= 10
                 if (score <= 0) {
                     score = 0
-                    tvFeedback.text = "💥 GAME OVER! Angka simpanan adalah $targetNumber."
-                    tvFeedback.setTextColor(Color.RED)
-                    historyList.add(0, "• Tebakan $userGuess ➡️ SALAH (Game Over)")
+                    tvFeedback.text = "Game Over! Angka simpanan adalah $targetNumber."
+                    tvFeedback.setTextColor(Color.parseColor("#EF4444")) // Red Crimson
+                    historyList.add(0, "Tebakan $userGuess: SALAH (Game Over)")
                     btnGuess.isEnabled = false
                     etGuess.isEnabled = false
                     btnReset.visibility = View.VISIBLE
                 } else if (userGuess < targetNumber) {
-                    tvFeedback.text = "📈 Angka $userGuess terlalu KECIL!"
-                    tvFeedback.setTextColor(Color.parseColor("#E65100"))
+                    tvFeedback.text = "Angka $userGuess terlalu kecil"
+                    tvFeedback.setTextColor(Color.parseColor("#F59E0B")) // Vibrant Amber
                     minRange = maxOf(minRange, userGuess + 1)
-                    historyList.add(0, "• Tebakan $userGuess ➡️ Terlalu KECIL ⬆️")
+                    historyList.add(0, "Tebakan $userGuess: Terlalu kecil")
                 } else {
-                    tvFeedback.text = "📉 Angka $userGuess terlalu BESAR!"
-                    tvFeedback.setTextColor(Color.parseColor("#E65100"))
+                    tvFeedback.text = "Angka $userGuess terlalu besar"
+                    tvFeedback.setTextColor(Color.parseColor("#F59E0B")) // Vibrant Amber
                     maxRange = minOf(maxRange, userGuess - 1)
-                    historyList.add(0, "• Tebakan $userGuess ➡️ Terlalu BESAR ⬇️")
+                    historyList.add(0, "Tebakan $userGuess: Terlalu besar")
                 }
             }
 
